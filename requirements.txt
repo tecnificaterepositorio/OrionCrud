@@ -11,12 +11,18 @@ imagesize==0.7.1
 Jinja2==2.9.6
 livereload==2.5.1
 MarkupSafe==1.0
+olefile==0.44
 pathtools==0.1.2
+pdfrw==0.4
+Pillow==4.3.0
 port-for==0.3.1
 Pygments==2.2.0
 pytz==2017.2
 PyYAML==3.12
+reportlab==3.4.0
 requests==2.18.4
+## FIXME: could not find svn URL in dependency_links for this package:
+rst2pdf===0.93.dev-r0
 singledispatch==3.4.0.3
 six==1.11.0
 snowballstemmer==1.2.1
