@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Formulario guíado por modelo &mdash; documentación de FastFormTecn - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de FastFormTecn - 1.0" href="../index.html"/>
+        <link rel="prev" title="Configuración inicial" href="configuracion-inicial.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> FastFormTecn
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación de la librería</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuracion-inicial.html">Configuración inicial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Formulario guíado por modelo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creacion-de-registros">Creación de registros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edicion-de-registros">Edición de registros</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FastFormTecn</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Formulario guíado por modelo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/doc/formulario.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="formulario-guiado-por-modelo">
+<h1>Formulario guíado por modelo<a class="headerlink" href="#formulario-guiado-por-modelo" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Para el funcionamiento óptimo de la librería en la creación y edición de registros, se recomienda utilizar el siguiente formulario, el cual, se encuentra totalmente adaptado:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+	<span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;BASEPATH&#39;</span><span class="p">)</span> <span class="k">OR</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
+	<span class="k">use</span> <span class="nx">libraries\Auth</span> <span class="k">as</span> <span class="nx">auth</span><span class="p">;</span> <span class="nv">$auth</span> <span class="o">=</span> <span class="k">new</span> <span class="k">namespace</span><span class="nx">\auth</span><span class="p">;</span> 
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">@extends(&#39;dir_path_base_html&#39;)</span>
+
+<span class="x">@section(&#39;content&#39;)</span>
+<span class="x">	&lt;div class=&quot;panel panel-default&quot;&gt;</span>
+<span class="x">		&lt;div class=&quot;panel-heading&quot;&gt;</span>
+<span class="x">			&lt;!-- Título del formulario --&gt;</span>
+<span class="x">			&lt;span&gt;&lt;b&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$title</span> <span class="cp">?&gt;</span><span class="x">&lt;/b&gt;&lt;/span&gt;</span>
+<span class="x">		&lt;/div&gt;</span>
+<span class="x">		&lt;!-- Creación del formulario --&gt;</span>
+<span class="x">		</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">form_open_multipart</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$method</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;get&#39;</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">)))</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">			&lt;div class=&quot;panel-body&quot;&gt;</span>
+<span class="x">				</span><span class="cp">&lt;?php</span>
+					<span class="c1">// El form_html recibe un arreglo que incluye los inputs</span>
+					<span class="k">foreach</span><span class="p">(</span><span class="nv">$forms</span> <span class="k">as</span> <span class="nv">$form</span><span class="p">){</span>
+						<span class="k">if</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+				<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">							&lt;div class=&quot;col-md-12&quot;&gt;</span>
+<span class="x">								&lt;div class=&quot;row&quot;&gt;</span>
+<span class="x">									&lt;div class=&quot;form-group row&quot;&gt;</span>
+<span class="x">										&lt;div class=&quot;col-md-3&quot;&gt;</span>
+<span class="x">											&lt;label&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/label&gt;</span>
+<span class="x">										&lt;/div&gt;</span>
+<span class="x">										</span><span class="cp">&lt;?php</span>
+											<span class="nv">$col</span> <span class="o">=</span> <span class="s1">&#39;col-md-9&#39;</span><span class="p">;</span>
+											<span class="c1">// En caso de que el input sea tipo file (adjuntar contenido multimedia o de texto plano)</span>
+											<span class="k">if</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span> <span class="k">and</span> <span class="nv">$url_image</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+												<span class="nv">$col</span> <span class="o">=</span> <span class="s1">&#39;col-md-8&#39;</span><span class="p">;</span>
+												<span class="k">echo</span> <span class="s1">&#39;</span>
+<span class="s1">													&lt;div class=&quot;col-md-1 text-center&quot;&gt;</span>
+<span class="s1">														&lt;img height=&quot;60&quot; src=&quot;&#39;</span><span class="o">.</span><span class="nv">$url_image</span><span class="o">.</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;&quot; /&gt;</span>
+<span class="s1">													&lt;/div&gt;</span>
+<span class="s1">												&#39;</span><span class="p">;</span>
+											<span class="p">}</span>
+										<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">										&lt;div class=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$col</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span>
+<span class="x">											&lt;!-- Caso normal (solo tipo input, select, textarea) --&gt;</span>
+<span class="x">											</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">										&lt;/div&gt;</span>
+<span class="x">									&lt;/div&gt;</span>
+<span class="x">								&lt;/div&gt;</span>
+<span class="x">							&lt;/div&gt;</span>
+<span class="x">				</span><span class="cp">&lt;?php</span>
+						<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+							<span class="k">echo</span> <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">];</span>
+						<span class="p">}</span>
+					<span class="p">}</span>
+				<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">			&lt;/div&gt;</span>
+<span class="x">			&lt;div class=&quot;panel-footer&quot;&gt;</span>
+<span class="x">				&lt;!-- Recibe una url para retornar --&gt;</span>
+<span class="x">				&lt;a href=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span><span class="nx">base_url</span><span class="p">(</span><span class="nv">$return_url</span><span class="p">)</span><span class="cp">?&gt;</span><span class="x">&quot; class=&quot;btn btn-default pull-left&quot;&gt;Volver&lt;/a&gt;</span>
+<span class="x">				&lt;input type=&quot;submit&quot; class=&quot;btn btn-primary pull-right&quot; name=&quot;save&quot; value=&quot;Enviar&quot;&gt;</span>
+<span class="x">			&lt;/div&gt;</span>
+<span class="x">		</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">form_close</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">	&lt;/div&gt;</span>
+<span class="x">@endsection</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>Se debe de tener previo la siguiente configuración en el constructor del controlador:</p>
+<div class="last highlight-php"><div class="highlight"><pre><span></span><span class="x">	public function __construct(){</span>
+<span class="x">		parent::__construct();</span>
+<span class="x">		$this-&gt;load-&gt;database();</span>
+<span class="x">		$this-&gt;load-&gt;model([</span>
+<span class="x">			&#39;ExmapleModel&#39;, // Nombre del modelo</span>
+<span class="x">		]);</span>
+<span class="x">		$this-&gt;load-&gt;library([</span>
+<span class="x">			&#39;forms&#39;, // Llamada a la librería</span>
+<span class="x">		]);</span>
+<span class="x">	}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creacion-de-registros">
+<h2>Creación de registros<a class="headerlink" href="#creacion-de-registros" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La parte de creación de registros se componen de varias partes, las cuales se describirán a continuación:</p>
+<p><strong>1. Arreglo general</strong> (<code class="docutils literal"><span class="pre">$data</span></code>):</p>
+<ul class="simple">
+<li>Llave <code class="docutils literal"><span class="pre">title</span></code>, es el título en el formulario.</li>
+<li>Llave <code class="docutils literal"><span class="pre">url</span></code>, es la url por el cual se enviará la información.</li>
+<li>Llave <code class="docutils literal"><span class="pre">id</span></code>, es la identificación del formulario (se utiliza en algunos casos para los eventos con JQuery).</li>
+<li>Llave <code class="docutils literal"><span class="pre">return_url</span></code>, es la url por el cual se pondrá a un botón para salir del formulario.</li>
+<li>Llave <code class="docutils literal"><span class="pre">forms</span></code>, es la llamada a la librería <code class="docutils literal"><span class="pre">form</span></code>. Recibe como parámetro el nombre del modelo y el método (<code class="docutils literal"><span class="pre">method</span></code>) por el cual se encuentran los campos.</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">		$data = [</span>
+<span class="x">			&#39;title&#39; =&gt; &#39;Agregar&#39;, // Título en el formularo</span>
+<span class="x">			&#39;url&#39; =&gt; &#39;example/agregar/&#39;, // URL para enviar el formulario</span>
+<span class="x">			&#39;id&#39; =&gt; &#39;form-example&#39;, // Identificación del formulario</span>
+<span class="x">			&#39;return_url&#39; =&gt; &#39;example&#39;, // URL de retorno</span>
+<span class="x">			// Llamada a la funcion get_fields_model de forms enviando el nombre de la tabla</span>
+<span class="x">			&#39;forms&#39; =&gt; $this-&gt;forms-&gt;get_fields_model(&#39;example&#39;, [&#39;method&#39; =&gt; &#39;example_form&#39;])</span>
+<span class="x">		];</span>
+</pre></div>
+</div>
+<p><strong>2. Recepción de datos</strong> (<code class="docutils literal"><span class="pre">POST</span></code> - <code class="docutils literal"><span class="pre">GET</span></code>):</p>
+<p>Esta parte del código se encarga de recibir los datos por <code class="docutils literal"><span class="pre">POST</span></code>. Por el método <code class="docutils literal"><span class="pre">GET</span></code> funciona de manera similar.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">		if($this-&gt;input-&gt;post(&#39;save&#39;) != &#39;&#39;){ // En caso de que haya recibido los datos por POST</span>
+<span class="x">			$data = $this-&gt;input-&gt;post();</span>
+<span class="x">			unset($data[&#39;save&#39;]); // Elimina el campo save (corresponde al input submit)</span>
+<span class="x">			$this-&gt;ExampleModel-&gt;save_example($data); // Envío de datos al modelo para guardarlos en el método save_example. Se debe de enviar $data el cual contiene los datos a guardar</span>
+<span class="x">			redirect(&#39;example&#39;, &#39;refresh&#39;); // URL de retorno después de haber guardado los datos</span>
+<span class="x">		}</span>
+</pre></div>
+</div>
+<p>Al final, el método <code class="docutils literal"><span class="pre">add</span></code> tendrá:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">	public function add(){</span>
+<span class="x">		$data = [</span>
+<span class="x">			&#39;title&#39; =&gt; &#39;Agregar&#39;, // Título en el formularo</span>
+<span class="x">			&#39;url&#39; =&gt; &#39;example/agregar/&#39;, // URL para enviar el formulario</span>
+<span class="x">			&#39;id&#39; =&gt; &#39;form-example&#39;, // Identificación del formulario</span>
+<span class="x">			&#39;return_url&#39; =&gt; &#39;example&#39;, // URL de retorno</span>
+<span class="x">			// Llamada a la funcion get_fields_model de forms enviando el nombre de la tabla</span>
+<span class="x">			&#39;forms&#39; =&gt; $this-&gt;forms-&gt;get_fields_model(&#39;example&#39;, [&#39;method&#39; =&gt; &#39;example_form&#39;])</span>
+<span class="x">		];</span>
+<span class="x">		if($this-&gt;input-&gt;post(&#39;save&#39;) != &#39;&#39;){ // En caso de que haya recibido los datos por POST</span>
+<span class="x">			$data = $this-&gt;input-&gt;post();</span>
+<span class="x">			unset($data[&#39;save&#39;]); // Elimina el campo save (corresponde al input submit)</span>
+<span class="x">			$this-&gt;ExampleModel-&gt;save_example($data); // Envío de datos al modelo para guardarlos en el método save_example. Se debe de enviar $data el cual contiene los datos a guardar</span>
+<span class="x">			redirect(&#39;example&#39;, &#39;refresh&#39;); // URL de retorno después de haber guardado los datos</span>
+<span class="x">		}</span>
+<span class="x">		$this-&gt;blade-&gt;view(&#39;dir_template/elements/form&#39;, $data); // Llamada al template general con parámetros establecidos en $data</span>
+<span class="x">	}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="edicion-de-registros">
+<h2>Edición de registros<a class="headerlink" href="#edicion-de-registros" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Con respecto al método de creación de registro, el método <code class="docutils literal"><span class="pre">edit</span></code> cambia en:</p>
+<ul class="simple">
+<li>Recibe el parámetro <code class="docutils literal"><span class="pre">$object_id</span></code> el cual contiene el código del registro a actualizar.</li>
+<li>La llave <code class="docutils literal"><span class="pre">url</span></code> en el arreglo <code class="docutils literal"><span class="pre">$data</span></code> cambia (se recuerda que ésta hace referencia a la url a enviar los datos).</li>
+<li>Se llama al método <code class="docutils literal"><span class="pre">update_example</span></code> del modelo, el cual se encarga de actualizar los registros. Ésta recibe el parámetro arreglo <code class="docutils literal"><span class="pre">$data</span></code> (contiene los datos a actualizar) y el parámetro <code class="docutils literal"><span class="pre">$object_id</span></code> (contiene el código del registro).</li>
+<li><dl class="first docutils">
+<dt>Los parámetros de la función <code class="docutils literal"><span class="pre">get_fields_model</span></code> en la llave <code class="docutils literal"><span class="pre">forms</span></code> en el arreglo <code class="docutils literal"><span class="pre">$data</span></code> cambia, como segundo parámetro se envía adicional la llave <code class="docutils literal"><span class="pre">table_id</span></code> en el arreglo:</dt>
+<dd><ul class="first last">
+<li>Llave <code class="docutils literal"><span class="pre">table_id</span></code> recibe el código del registro.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Al final, el método <code class="docutils literal"><span class="pre">edit</span></code> tendrá:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">	public function edit($object_id){ // Recibe el parámetro $object_id, el cual es el código del registro a actualizar</span>
+<span class="x">		$data = [</span>
+<span class="x">			&#39;title&#39; =&gt; &#39;Editar&#39;, // Título en el formularo</span>
+<span class="x">			&#39;url&#39; =&gt; &#39;example/editar/&#39;.$object_id, // URL para enviar el formulario</span>
+<span class="x">			&#39;id&#39; =&gt; &#39;form-example&#39;, // Identificación del formulario</span>
+<span class="x">			&#39;return_url&#39; =&gt; &#39;example&#39;, // URL de retorno</span>
+<span class="x">			// Llamada a la funcion get_fields_model de forms enviando el nombre de la tabla y el id</span>
+<span class="x">			&#39;forms&#39; =&gt; $this-&gt;forms-&gt;get_fields_model(&#39;example&#39;, [&#39;table_id&#39; =&gt; $object_id, &#39;method&#39; =&gt; &#39;example_form&#39;])</span>
+<span class="x">		];</span>
+<span class="x">		if($this-&gt;input-&gt;post(&#39;save&#39;) != &#39;&#39;){ // En caso de que haya recibido los datos por POST</span>
+<span class="x">			$data = $this-&gt;input-&gt;post();</span>
+<span class="x">			unset($data[&#39;save&#39;], $data[&#39;id&#39;]); // Elimina el campo save (corresponde al input submit) y el idm del registro</span>
+<span class="x">			$this-&gt;ExampleModel-&gt;update_example($data, $object_id); // Envío de datos al modelo para actualizarlos en el método update_example. Se debe de enviar $data el cual contiene los datos a actualizar y el $object_id el cual es el código del registro a actualizar</span>
+<span class="x">			redirect(&#39;example&#39;, &#39;refresh&#39;); // URL de retorno después de haber guardado los datos</span>
+<span class="x">		}</span>
+<span class="x">		$this-&gt;blade-&gt;view(&#39;dir_template/elements/form&#39;, $data); // Llamada al template general con parámetros establecidos en $data</span>
+<span class="x">	}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="configuracion-inicial.html" class="btn btn-neutral" title="Configuración inicial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Development Team Tecnificate.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

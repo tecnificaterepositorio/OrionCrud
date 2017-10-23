@@ -1,0 +1,6 @@
+3. Creación de un registro
+========================================
+Para el funcionamiento óptimo de la librería en la creación y edición de registros, se recomienda utilizar el siguiente formulario, el cual, se encuentra totalmente adaptado:
+
+.. literalinclude:: ../code/form.blade.php
+	:language: php

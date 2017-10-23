@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuración inicial &mdash; documentación de FastFormTecn - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de FastFormTecn - 1.0" href="../index.html"/>
+        <link rel="next" title="Formulario guíado por modelo" href="formulario-by-model.html"/>
+        <link rel="prev" title="Instalación de la librería" href="instalacion.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> FastFormTecn
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación de la librería</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuración inicial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#integracion">Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metodos-bases">Métodos bases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-form">example_form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-data">get_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-example">save_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-example">update_example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formulario-by-model.html">Formulario guíado por modelo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulario-no-model.html">Formulario no guíado por modelo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="param-extra.html">Parámetros extra</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FastFormTecn</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Configuración inicial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/doc/configuracion-inicial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuracion-inicial">
+<h1>Configuración inicial<a class="headerlink" href="#configuracion-inicial" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="integracion">
+<h2>Integración<a class="headerlink" href="#integracion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez se tenga instalada la librería en la carpeta libraries (path <code class="docutils literal"><span class="pre">/application/libraries</span></code>), se procederá a realizar la configuración inicial. Se deberá agregar el modelo en dos variables, las cuales están en forma de arreglo.</p>
+<p>En la línea <code class="docutils literal"><span class="pre">$this-&gt;ci-&gt;load-&gt;model</span></code>, se deberá agregar el modelo para que la librería lo reconozca:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">		$this-&gt;ci-&gt;load-&gt;model([</span>
+<span class="x">			&#39;ExampleModel&#39;,</span>
+<span class="x">		]);</span>
+</pre></div>
+</div>
+<p>En la línea <code class="docutils literal"><span class="pre">$this-&gt;call_model_array</span></code> se le asigna a una llave del arreglo la instancia al modelo a importar:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">		$this-&gt;call_model_array = [</span>
+<span class="x">			&#39;example&#39; =&gt; new ExampleModel(),</span>
+<span class="x">		];</span>
+</pre></div>
+</div>
+<p>Para cada modelo, deberá estar extendido por la librería Eloquent de la siguiente forma:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">class ExampleModel extends Eloquent{</span>
+</pre></div>
+</div>
+<p>Seguido de ello, se deberá poner lo siguiente dentro del modelo:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">protected $table = &#39;example_table&#39;; // Nombre de la tabla</span>
+<span class="x">public $timestamps = false; // Poner esta línea si no existe el campo timestamp en la tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metodos-bases">
+<h2>Métodos bases<a class="headerlink" href="#metodos-bases" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Dentro de cada modelo se deberá cuatro métodos, las cuales, se ponen a continuación con una breve explicación de su finalidad:</p>
+<div class="section" id="example-form">
+<h3>example_form<a class="headerlink" href="#example-form" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Aquí se ponen los fields - campos de la tabla de la base de datos sin el campo primario (por lo general es id).</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">public function example_form(){</span>
+<span class="x">	return [</span>
+<span class="x">		&#39;field_one&#39; =&gt; [ // Nombre del campo en la bd</span>
+<span class="x">			&#39;required&#39; =&gt; true, // Lleva false o true dependiendo si el campo es requerido</span>
+<span class="x">			&#39;label&#39; =&gt; &#39;Field one&#39;, // Nombre del campo a mostrar en el formulario</span>
+<span class="x">			&#39;class&#39; =&gt; &#39;&#39;, // Atributo clase de css a mostrar</span>
+<span class="x">			&#39;type&#39; =&gt; &#39;text&#39; // Tipo de campo (text, select, file)</span>
+<span class="x">		],</span>
+<span class="x">		&#39;field_two&#39; =&gt; [ // Nombre del campo en la bd</span>
+<span class="x">			&#39;required&#39; =&gt; true, // Lleva false o true dependiendo si el campo es requerido</span>
+<span class="x">			&#39;label&#39; =&gt; &#39;Field two&#39;, // Nombre del campo a mostrar en el formulario</span>
+<span class="x">			&#39;class&#39; =&gt; &#39;&#39;, // Atributo clase de css a mostrar</span>
+<span class="x">			&#39;type&#39; =&gt; &#39;select&#39; // Tipo de campo (text, select, file)</span>
+<span class="x">		]</span>
+<span class="x">	];</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-data">
+<h3>get_data<a class="headerlink" href="#get-data" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El método <code class="docutils literal"><span class="pre">get_data</span></code> funciona para dar los datos. Por lo general, recibe el parámetro <code class="docutils literal"><span class="pre">$id</span></code> y consulta el registro en el modelo <code class="docutils literal"><span class="pre">ExampleModel</span></code> para devolver el resultado encontrado.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">public function get_data($id){ // Recibe el parámetro $id</span>
+<span class="x">	return ExampleModel::where(&#39;id&#39;, $id)-&gt;first()-&gt;toArray(); // Nombre del modelo a obtener los datos</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="save-example">
+<h3>save_example<a class="headerlink" href="#save-example" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El método <code class="docutils literal"><span class="pre">save_example</span></code> funciona para guardar los datos. Recibe el arreglo <code class="docutils literal"><span class="pre">$data</span></code> en el que se incluye los datos a guardar en el modelo</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">public function save_example($data){ // Recibe un arreglo con los datos a guardar</span>
+<span class="x">	return ExampleModel::insert($data); // Guarda los datos</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-example">
+<h3>update_example<a class="headerlink" href="#update-example" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El método <code class="docutils literal"><span class="pre">update_example</span></code> funciona para actualizar los datos de un registro. Recibe como parámetro el arreglo <code class="docutils literal"><span class="pre">$data</span></code> que incluye los datos a actualizar y el parámetro <code class="docutils literal"><span class="pre">$id</span></code> que incluye el código del registro a actualizar.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">public function update_example($data, $id){ // Recibe un arreglo de los datos a actualizar y un id para buscar el registro a actualizar</span>
+<span class="x">	$example = ExampleModel::where(&#39;id&#39;, $id); // Busca el registro de acuerdo al id</span>
+<span class="x">	return $example-&gt;update($data); // Actualiza los datos recibidos en $data en el registro encontrado</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="formulario-by-model.html" class="btn btn-neutral float-right" title="Formulario guíado por modelo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="instalacion.html" class="btn btn-neutral" title="Instalación de la librería" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Development Team Tecnificate.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

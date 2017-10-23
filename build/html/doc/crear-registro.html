@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Creación de un registro &mdash; documentación de FastFormTecn - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de FastFormTecn - 1.0" href="../index.html"/>
+        <link rel="prev" title="2. Configuración inicial" href="configuracion-inicial.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> FastFormTecn
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">1. Instalación de la librería</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuracion-inicial.html">2. Configuración inicial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Creación de un registro</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FastFormTecn</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>3. Creación de un registro</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/doc/crear-registro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creacion-de-un-registro">
+<h1>3. Creación de un registro<a class="headerlink" href="#creacion-de-un-registro" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Para el funcionamiento óptimo de la librería en la creación y edición de registros, se recomienda utilizar el siguiente formulario, el cual, se encuentra totalmente adaptado:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+	<span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;BASEPATH&#39;</span><span class="p">)</span> <span class="k">OR</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
+	<span class="k">use</span> <span class="nx">libraries\Auth</span> <span class="k">as</span> <span class="nx">auth</span><span class="p">;</span> <span class="nv">$auth</span> <span class="o">=</span> <span class="k">new</span> <span class="k">namespace</span><span class="nx">\auth</span><span class="p">;</span> 
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">@extends(&#39;dir_path_base_html&#39;)</span>
+
+<span class="x">@section(&#39;content&#39;)</span>
+<span class="x">	&lt;div class=&quot;panel panel-default&quot;&gt;</span>
+<span class="x">		&lt;div class=&quot;panel-heading&quot;&gt;</span>
+<span class="x">			&lt;!-- Título del formulario --&gt;</span>
+<span class="x">			&lt;span&gt;&lt;b&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$title</span> <span class="cp">?&gt;</span><span class="x">&lt;/b&gt;&lt;/span&gt;</span>
+<span class="x">		&lt;/div&gt;</span>
+<span class="x">		&lt;!-- Creación del formulario --&gt;</span>
+<span class="x">		</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">form_open_multipart</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$method</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;get&#39;</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">)))</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">			&lt;div class=&quot;panel-body&quot;&gt;</span>
+<span class="x">				</span><span class="cp">&lt;?php</span>
+					<span class="c1">// El form_html recibe un arreglo que incluye los inputs</span>
+					<span class="k">foreach</span><span class="p">(</span><span class="nv">$forms</span> <span class="k">as</span> <span class="nv">$form</span><span class="p">){</span>
+						<span class="k">if</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+				<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">							&lt;div class=&quot;col-md-12&quot;&gt;</span>
+<span class="x">								&lt;div class=&quot;row&quot;&gt;</span>
+<span class="x">									&lt;div class=&quot;form-group row&quot;&gt;</span>
+<span class="x">										&lt;div class=&quot;col-md-3&quot;&gt;</span>
+<span class="x">											&lt;label&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/label&gt;</span>
+<span class="x">										&lt;/div&gt;</span>
+<span class="x">										</span><span class="cp">&lt;?php</span>
+											<span class="nv">$col</span> <span class="o">=</span> <span class="s1">&#39;col-md-9&#39;</span><span class="p">;</span>
+											<span class="c1">// En caso de que el input sea tipo file (adjuntar contenido multimedia o de texto plano)</span>
+											<span class="k">if</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span> <span class="k">and</span> <span class="nv">$url_image</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+												<span class="nv">$col</span> <span class="o">=</span> <span class="s1">&#39;col-md-8&#39;</span><span class="p">;</span>
+												<span class="k">echo</span> <span class="s1">&#39;</span>
+<span class="s1">													&lt;div class=&quot;col-md-1 text-center&quot;&gt;</span>
+<span class="s1">														&lt;img height=&quot;60&quot; src=&quot;&#39;</span><span class="o">.</span><span class="nv">$url_image</span><span class="o">.</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;&quot; /&gt;</span>
+<span class="s1">													&lt;/div&gt;</span>
+<span class="s1">												&#39;</span><span class="p">;</span>
+											<span class="p">}</span>
+										<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">										&lt;div class=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$col</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span>
+<span class="x">											&lt;!-- Caso normal (solo tipo input, select, textarea) --&gt;</span>
+<span class="x">											</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">										&lt;/div&gt;</span>
+<span class="x">									&lt;/div&gt;</span>
+<span class="x">								&lt;/div&gt;</span>
+<span class="x">							&lt;/div&gt;</span>
+<span class="x">				</span><span class="cp">&lt;?php</span>
+						<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+							<span class="k">echo</span> <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">];</span>
+						<span class="p">}</span>
+					<span class="p">}</span>
+				<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">			&lt;/div&gt;</span>
+<span class="x">			&lt;div class=&quot;panel-footer&quot;&gt;</span>
+<span class="x">				&lt;!-- Recibe una url para retornar --&gt;</span>
+<span class="x">				&lt;a href=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span><span class="nx">base_url</span><span class="p">(</span><span class="nv">$return_url</span><span class="p">)</span><span class="cp">?&gt;</span><span class="x">&quot; class=&quot;btn btn-default pull-left&quot;&gt;Volver&lt;/a&gt;</span>
+<span class="x">				&lt;input type=&quot;submit&quot; class=&quot;btn btn-primary pull-right&quot; name=&quot;save&quot; value=&quot;Enviar&quot;&gt;</span>
+<span class="x">			&lt;/div&gt;</span>
+<span class="x">		</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">form_close</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">	&lt;/div&gt;</span>
+<span class="x">@endsection</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="configuracion-inicial.html" class="btn btn-neutral" title="2. Configuración inicial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Development Team Tecnificate.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
