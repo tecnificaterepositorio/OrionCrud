@@ -48,8 +48,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OrionCrud'
-copyright = u'2017, Development Team Tecnificate'
-author = u'Development Team Tecnificate'
+copyright = u'2017, Software y soluciones informaticas Tecnificate SAS'
+author = u'Software y soluciones informaticas Tecnificate SAS'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -144,7 +144,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'OrionCrud.tex', u'OrionCrud Documentation',
-     u'Development Team Tecnificate', 'manual'),
+     u'Software y soluciones informaticas Tecnificate SAS', 'manual'),
 ]
 
 
